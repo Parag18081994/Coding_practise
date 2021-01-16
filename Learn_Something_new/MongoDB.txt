@@ -1,0 +1,98 @@
+What is MongoDB?
+MongoDB is a NOSQL i.e “Non-Relational” database which is an open source document oriented database.We can say that MongoDB doesnot have a table like relational database structure but a different mechanism for storage and retrieval of data.The format of storage is BSON(binary Jason).
+
+A simple MongoDB document Structure:
+
+###################################code############################################
+
+{
+  "First_name":"Sam",
+    "Last_name":"Curran",
+    "Age":45,
+    "Qualification":"BSc",
+    "Designation":"NLP Engineer"
+}
+
+###################################code############################################
+
+Features of MongoDB:-
+1.Document Oriented.
+2.Indexing.
+3.Scalability.
+4.Replication and High Availability.
+5.Aggregation
+
+ Installing Python package for MongoDB-
+ There are many python libraries to connect to MongoDB but PyMongo is the official library associated with MongoDB.To install this library we will use pip package management system,by running the following command in command prompt-
+
+###################################code############################################
+
+pip install pymongo
+
+###################################code############################################
+
+2. Establishing connection-
+First we will need to import pymongo library and then use MongoClient( ) function to connect default host and port.The second command is used to connect the MongoClient on the localhost which runs on port number 27017.
+
+###################################code############################################
+
+import pymongo
+client=pymongo.MongoClient('mongodb://127.0.0.1:27017/')
+
+###################################code############################################
+3.Access Database Objects-
+Below command will help us to create a database name “Employees” or connect to the existing one.we can verify if the database is create in MongoDB compass after we add collections to it,empty database will not appear in the MongoDB compass.
+
+###################################code############################################
+mydb=client['Employees']
+###################################code############################################
+4. Accessing collection :-
+In RDBMS,we use tables whereas in MongoDB we use Collection.In below command “employeeinformation” is the collection name and “mydb” is the object of “Employees” database.
+
+###################################code############################################
+
+information=mydb.employeeinformation
+
+###################################code############################################
+
+5. Insert the data inside a collection :
+MongoDB stores data inform json as below-
+
+###################################code############################################
+
+record={
+    "First_name":"Sam",
+    "Last_name":"Curran",
+    "Age":25,
+    "Qualification":"BE",
+    "Designation":"Machine Learning Engineer"
+}
+
+
+###################################code############################################
+We can insert a single record as well as multiple record by using insert_one() and insert_many().
+
+###################################code############################################
+
+information.insert_one(record) #Insert single records
+information.insert_many(record) #Inserts multiple records
+
+
+###################################code############################################
+6.Querying in MongoDB-
+
+We can use find() to retrieve single or multiple document/json data from database in mongodb.
+
+###################################code############################################
+
+query={"First_name":"Joe"}
+for i in information.find(query):
+    print(i)
+
+###################################code############################################
+
+Conclusion-
+Today we have learned about MongoDB,connection to MongoDB using python,inserting record in MongoDB using Pymongo library…(cheers:-PN)
+
+Link-
+https://paragnaik2019.medium.com/python-and-mongodb-cfd8062fb9a
