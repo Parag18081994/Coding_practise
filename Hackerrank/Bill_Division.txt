@@ -1,0 +1,31 @@
+Problem statement-
+Two friends Anna and Brian, are deciding how to split the bill at a dinner. Each will only pay for the items they consume. Brian gets the check and calculates Anna’s portion. You must determine if his calculation is correct.
+
+Solution-
+This problem reminded me of my college civilization days where we each of the individual would contribute his share based on the food he/she ate.
+Anyways,let move toward the problem at hand.Here we have to calculated or verify whether brain is not overcharging Anna.
+The items(food) which they ate is stored in a list based,the values in the list is the cost of each food bill=[3,10,2,9].
+k=1,it is the index of food in the list which Anna didn't eat so we have to subtract this from Anna’s share.
+b=12, the amount of money that Anna contributed to the bill.
+
+Let’s concentrate on code,here we first iterate the list(bill) and store the total addition of the cost of the bill in total_amount variable.
+After that we calculate Anna’s share by subtracting the amount of food she didn't consume,then we check whether the bill provide and our calculation of Anna’s share matches or not.
+Later we are just printing the difference between the proposed share amount and calculated one.
+
+##########################code###############################################################
+
+def bonAppetit(bill, k, b):
+    total_amount=0
+    for i in bill:
+        total_amount+=i
+    anna_share=(total_amount-bill[k])//2
+    if anna_share==b:
+        print("Bon Appetit")
+    else:
+        print(abs(anna_share-b))
+
+Conclusion-
+A simple problem today we learned about for-loop and remembering some old days….(cheers- PN)
+
+Link-
+https://paragnaik2019.medium.com/bill-division-6dd762f6c533
