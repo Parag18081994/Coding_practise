@@ -1,0 +1,37 @@
+Cats and a Mouse
+
+Problem-Two cats and a mouse are at various positions on a line. You will be given their starting positions. Your task is to determine which cat will reach the mouse first, assuming the mouse does not move and the cats travel at equal speed. If the cats arrive at the same time, the mouse will be allowed to move and it will escape while they fight.You are given q queries in the form of x,y,z and representing the respective positions for cats A and B, and for mouse C. Complete the function catAndMouse to return the appropriate answer to each query, which will be printed on a new line.
+1. If cat A catches the mouse first, print Cat A.
+2. If cat B catches the mouse first, print Cat B.
+3. If both cats reach the mouse at the same time, print Mouse C as the two cats fight and mouse escapes.
+Image for post
+Image for post
+Photo by Rick Lam on Unsplash
+
+Solution-
+A very simple question with a simple solution,let quickly move towards the code.To make it easier to understand I have placed the values of x,y,z in cat_a,cat_b and mouse respectively.As we are trying to find the distance between the mouse and cats individually.so we subtract the distance of each cat with respect to the mouse.Depending on the distance the cat which is close to mouse is returned by the function i.e “Cat A” or “Cat B”.
+
+
+##################################code#################################################
+def catAndMouse(x, y, z):
+    cat_a,cat_b,mouse=x,y,z
+    if (abs(cat_a-mouse))<(abs(cat_b-mouse)):
+        return "Cat A"
+    elif (abs(cat_a-mouse))==(abs(cat_b-mouse)):
+        return "Mouse C"
+    else:
+        return "Cat B"
+
+############################################################################################
+
+There is one more condition given that if both the cats are at same distance from the mouse,the mouse will escape once the cats start fight with each other.In this situation we will return “Mouse C”.
+
+Conclusion-
+
+This problem remind me of the rat race in which we all are competing.Lets take a break and concentrate on our health and good thoughts………(Cheers:- PN)
+
+
+
+
+Link-
+https://paragnaik2019.medium.com/cats-and-a-mouse-45ab606d62bd
