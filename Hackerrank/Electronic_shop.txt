@@ -1,0 +1,31 @@
+Electronics Shop
+
+Problem-A person wants to determine the most expensive computer keyboard and USB drive that can be purchased with a give budget. Given price lists for keyboards and USB drives and a budget, find the cost to buy them. If it is not possible to buy both items, return -1.
+Image for post
+Photo by Domenico Loia on Unsplash
+Solution-
+A straight forward question in which we need to find a combination of 1 keyboard and 1 drive such that the addition does not cross the budget and is maximum combination in all.
+Let consider the code, we will consider a empty list cart and iterate both keyboards and drives list by using a loop inside a loop technique and add each of elements of both list in that iteration and compare it with given budget.
+
+
+##############################################code################################################
+def getMoneySpent(keyboards, drives, b):
+    cart=[]
+    for keyboard in keyboards:
+        for drive in drives:
+            price=keyboard+drive
+            if price<=b:
+                cart.append(price)
+                
+    if min(keyboards)+min(drives)>b:    
+        return -1
+    else:
+        return max(cart)
+
+########################################################################################################
+if the addition is less than or equal to budget append it in the cart list. In next if statement we will check an edge case where there are only one element in both keyboard and drives list and their addition is exceeding our budget. if this is so we will return -1 value else we will return the maximum value from cart list by using max() in-built function on the list cart.
+Conclusion-
+This question reminds me of an idiom “cut your coat according to your cloth” but never compromise on dreams only remember sky is the limit.
+Keeping on learning and hustling………………………………..(cheers:-PN)
+
+Link-https://paragnaik2019.medium.com/electronics-shop-d3b7006971cc

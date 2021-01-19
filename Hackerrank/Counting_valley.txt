@@ -1,0 +1,37 @@
+Counting valley-
+
+Problem statement-
+An avid hiker keeps meticulous records of their hikes. During the last hike that took exactly steps steps, for every step it was noted if it was an uphill ,U, or a downhill, D step. Hikes always start and end at sea level, and each step up or down represents a 1 unit change in altitude. We define the following terms:
+1.A mountain is a sequence of consecutive steps above sea level, starting with a step up from sea level and ending with a step down to sea level.
+2.A valley is a sequence of consecutive steps below sea level, starting with a step down from sea level and ending with a step up to sea level.
+Given the sequence of up and down steps during a hike, find and print the number of valleys walked through.
+Image for post
+Photo by Jakob Owens on Unsplash
+Solution-
+Quite straight forward question but needed an intense brainstorming session.
+The catch was to find when the hiker reaches the sea-level whether he/she is coming from above the sea-level(“D”) or from below the sea-level(“U”).
+Lets discuss the code, we are initializing three variables sea_level, up, down.
+Now we will traverse the string path and compare whether the hiker is going up or down i. e “U” or “D”. We will increment up and down based on it.
+Now in same iteration we will check whether up==down, which will tell us in that specific iteration the hiker is on sea-level
+
+######################################code############################################
+def countingValleys(steps, path):
+    sea_level,up,down,valley=0,0,0,0
+    for step in path:
+        if step=="U":
+            up+=1
+        else:
+            down+=1
+        if up==down:
+            sea_level+=1
+            if (sea_level!=0) and (step=='U'):
+                valley+=1
+            sea_level,up,down=0,0,0
+    return valley
+
+######################################code############################################
+In same condition we will check if sea_level is not 0 and the hiker took up i. e “U” step in the same iteration, if this condition is satisfied we will increment a variable valley by 1.In same iteration we will reset the values of sea_level, up, down if the hiker reaches the sea-level in that iteration.
+Conclusion-
+A problem which is analogous to life depicting that life is like sin wave, one day or phase you will be on top of the world and next phase you will be at rock-bottom but the important thing is to keep on hustling and learning (cheers:-PN)
+
+Link-https://paragnaik2019.medium.com/counting-valleys-6608c1bed992
